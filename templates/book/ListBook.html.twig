@@ -1,0 +1,34 @@
+<table border="1">
+    <tr>
+        {% set nb_pub = 0 %}
+        {% set nb_non = 0 %}
+        <td>Ref</td>
+        <td>Title</td>
+        <td>Published</td>
+        <td>Publication Date</td>
+        <td>Actions</td>
+    </tr>
+
+    {% for book in tabBook %}
+        <tr>
+            <td>{{ book.ref }}</td>
+            <td>{{ book.title }}</td>
+            <td>{{ book.published ? 'Yes' : 'No' }}</td>
+            <td>{{ book.publicationDate|date('Y-m-d') }}</td>
+            <td>
+                <a href="{{ path('editBook', {'ref': book.ref}) }}">Update</a>
+                <a href="{{ path('book_remove', {'ref': book.ref}) }}">Delete</a>
+                
+            </td>
+        </tr>
+
+        {% if book.published %}
+            {% set nb_pub = nb_pub + 1 %}
+        {% else %}
+            {% set nb_non = nb_non + 1 %}
+        {% endif %}
+    {% endfor %}
+</table>
+<a href="{{ path('add_book') }}">Add Book</a>
+<h3>Number of books published: {{ nb_pub }}</h3>
+<h3>Number of books unpublished: {{ nb_non }}</h3>

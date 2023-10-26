@@ -1,0 +1,37 @@
+<table border="1">
+    <tr>
+        <td>Id</td>
+        <td>email</td>
+        <td>username</td>
+    </tr>
+
+    {% for author in tabAuthors %}
+        <tr>
+            <td>    {{ author.id }}
+            </td>
+            <td>    {{ author.email }}
+            </td>
+            <td>    {{ author.username }}
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+
+<table border="1">
+    <tr>
+        <td>Id</td>
+        <td>email</td>
+        <td>username</td>
+    </tr>
+
+    {% for author in tabAuthorsTri %}
+        <tr>
+            <td>    {{ author.id }}
+            </td>
+            <td>    {{ author.email }}
+            </td>
+            <td>    {{ author.username }}
+            </td>
+        </tr>
+    {% endfor %}
+</table>
